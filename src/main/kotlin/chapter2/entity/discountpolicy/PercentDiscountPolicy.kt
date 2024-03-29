@@ -1,11 +1,15 @@
-package org.osds.chapter2.entity
+package org.osds.chapter2.entity.discountpolicy
+
+import org.osds.chapter2.entity.DiscountCondition
+import org.osds.chapter2.entity.Money
+import org.osds.chapter2.entity.Screening
 
 /**
  * 비율 할인 정책
  */
 class PercentDiscountPolicy(
     private var percent: Double,
-) : DiscountPolicy() {
+) : DefaultDiscountPolicy() {
     constructor(
         percent: Double,
         conditions: MutableList<DiscountCondition>,
@@ -14,7 +18,7 @@ class PercentDiscountPolicy(
         this.percent = percent
     }
 
-    override fun getDiscountAmount(screening: Screening): Money {
+    override fun calculateDiscountAmount(screening: Screening): Money {
         return screening.getMovieFee().times(percent)
     }
 }

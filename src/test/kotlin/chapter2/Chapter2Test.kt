@@ -1,6 +1,7 @@
 package chapter2
 
 import org.osds.chapter2.entity.*
+import org.osds.chapter2.entity.discountpolicy.AmountDiscountPolicy
 import java.time.DayOfWeek
 import java.time.Duration
 import java.time.LocalTime
@@ -15,7 +16,7 @@ class Chapter2Test {
             title = "아바타",
             runningTime = Duration.ofMinutes(120),
             fee = Money.wons(10000),
-            discountPolicy = AmountDiscountPolicy(
+            defaultDiscountPolicy = AmountDiscountPolicy(
                 discountAmount = Money.wons(800),
                 mutableListOf(
                     SequenceCondition(1),
